@@ -1,4 +1,4 @@
-import { $ } from "bun";
+// import { $ } from "bun";
 import { XMLParser } from "fast-xml-parser";
 
 async function xml(text: string) {
@@ -60,10 +60,4 @@ async function returnFeeds() {
 
 returnFeeds();
 
-// getLinks(urls[0]);
-
-// console.log("url: ", out.rss.channel.link);
-// const link = out.rss.channel.item[0].link;
-// // console.log(link);
-//
 // await $`xdg-open ${link}`

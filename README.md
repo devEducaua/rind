@@ -1,15 +1,2 @@
 # rind
-
-To install dependencies:
-
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run 
-```
-
-This project was created using `bun init` in bun v1.2.5. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+Rss INDexer fetches RSS feeds and sends them to you. Instead of reading inside the app, you read on the original website.

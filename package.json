@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "fast-xml-parser": "^5.2.5"
+  },
+  "name": "rind",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

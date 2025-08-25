@@ -1,2 +1,1 @@
-tadaima.bearblog.dev/rss
-codemadness.org/rss.xml
+codemadness: https://codemadness.org/rss.xml

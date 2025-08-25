@@ -33,19 +33,44 @@ async function getFeeds(filename: string) {
     return [names, urls];
 }
 
-async function logFeeds() {
-    const [names, urls] = await getFeeds("urls.txt");
 
-    const result = await Promise.all(urls.map(url => parseLinks(url)));
+const [names, urls] = await getFeeds("urls.txt");
+const args = Bun.argv.slice(2);
 
+if (args[0] == "list") {
+    for (let i = 0; i < names.length; i++) {
+        console.log(`\x1b[37m${names[i]} - \x1b[0m${urls[i]}`);
+    }
+}
+
+const result = await Promise.all(urls.map(url => parseLinks(url)));
+
+if (args.length == 0) {
     for (let i = 0; i < result.length; i++) {
         const [out, items] = result[i];
 
-        console.log(`--------${out.rss.channel.title}--------`);
-        for (const item of items) {
-            console.log(`\x1b[37m${names[i]}: \x1b[0m${item.link}`);
+        console.log(`--------\x1b[37m${out.rss.channel.title}--------`);
+        for (let j = 0; j < items.length; j++) {
+            const link = items[j].link;
+            const title = items[j].title;
+
+            console.log(`\x1b[37m${j}. \x1b[0m${link} - \x1b[37m${title}`);
         }
+    }       
+    process.exit(69);
+}
+
+const name = args[0];
+
+for (let i = 0; i < result.length; i++) {
+    if (name == names[i]) {
+        const [out, items] = result[i];
+
+        for (let j = 0; j < items.length; j++) {
+            console.log(`\x1b[37m${j}. \x1b[0m${items[j].link} - \x1b[37m${items[j].title}`);
+        }
+        process.exit(69);
     }
 }
-await logFeeds();
+
 // await $`xdg-open ${link}`

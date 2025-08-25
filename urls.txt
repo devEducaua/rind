@@ -1,1 +1,2 @@
-codemadness: https://codemadness.org/rss.xml
+tadaima: https://tadaima.bearblog.dev/rss
+denshi: https://denshi.org/index.xml
